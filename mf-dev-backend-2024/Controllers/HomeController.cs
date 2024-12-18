@@ -1,9 +1,11 @@
 using System.Diagnostics;
 using mf_dev_backend_2024.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace mf_dev_backend_2024.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -15,7 +17,7 @@ namespace mf_dev_backend_2024.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Veiculos");  
         }
 
         public IActionResult Privacy()
